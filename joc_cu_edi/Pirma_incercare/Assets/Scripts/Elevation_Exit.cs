@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Elevation_Entry : MonoBehaviour
+public class Elevation_Exit : MonoBehaviour
 {
 
     public Collider2D[] mountainColliders;
@@ -8,19 +8,19 @@ public class Elevation_Entry : MonoBehaviour
     //public bool firstlayer = true;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Warrior_Blue" )//&& firstlayer)
+        if (collision.gameObject.tag == "Warrior_Blue")//&& firstlayer)
         {
             foreach (Collider2D mountain in mountainColliders)
             {
-                mountain.enabled = false;
+                mountain.enabled = true;
             }
 
             foreach (Collider2D boundary in boundaryCollisions)
             {
-                boundary.enabled = true;
+                boundary.enabled = false;
             }
 
-            collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 15;
+            collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
             //firstlayer = false;
         }
         //else if(collision.gameObject.tag == "Warrior_Blue" && firstlayer == false)
@@ -38,9 +38,9 @@ public class Elevation_Entry : MonoBehaviour
         //    collision.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 5;
         //    firstlayer = true;
         //}
-            
 
-       
+
+
     }
 
 
